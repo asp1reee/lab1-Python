@@ -85,6 +85,6 @@ if a > b:
         print(white, ' ', end, ' ' * 24, white, ' ', end)
 else:
     for i in range(max((b - a) / 10, 1)):
-        print(white, ' ', end)
+        print(' ' * 28, white, ' ', end)
     for i in range(10 - max((b - a) / 10, 1)):
         print(white, ' ', end, ' ' * 24, white, ' ', end)
