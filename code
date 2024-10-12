@@ -77,7 +77,7 @@ persent_ratio_chet = sum_chet_pos * 100 / sum_all
 persent_ratio_nechet = sum_nechet_pos * 100 / sum_all
 a, b = round(persent_ratio_chet, 2), round(persent_ratio_nechet, 2)
 
-print(f'Чётные числа: {b}          Нечётные числа: {b}')
+print(f'Чётные числа: {a}          Нечётные числа: {b}')
 if a > b:
     for i in range(max((a - b) / 10, 1)):
         print(white, ' ', end)
