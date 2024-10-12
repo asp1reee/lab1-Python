@@ -1,91 +1,89 @@
-red = '\x1b[41m'
-blue = '\u001b[44m'
-white = '\x1b[48;5;15m'
-end = '\u001b[0m'
-
-#Ex 1 (Netherlands flag)
-print('Ex 1 (Netherlands flag)')
+RED = '\x1b[41m'
+BLUE = '\u001b[44m'
+WHITE = '\x1b[48;5;15m'
+END = '\u001b[0m'
 
 
 def draw_line(color, ln):
     line = ' ' * ln
-    print(color, line, end)
+    print(color, line, END)
 
 
-for i in [red, white, blue]:
-    draw_line(i, 20)
+def Flag_Netherlands():
+    print('Ex 1 (Netherlands flag)')
+    for color in [RED, WHITE, BLUE]:
+        draw_line(color, 20)
+    print('\n'*2)
 
 
-print('\n'*2)
+def Tracery_c():
+    print('Ex 2 (Tracery c)')
+    print(WHITE, END, " " * 8, WHITE, WHITE, END, " " * 8, WHITE, END)
+    for i in range (4):
+        print(" " * i, WHITE, END, " " * (6 - 2 * i), WHITE, END, " " * i * 2, WHITE, END, " " * (6 - 2 * i), WHITE, END)
 
-# Ex 2 (Tracery c)
-print('Ex 2 (Tracery c)')
+    print(" " * 4, WHITE, WHITE, END, " " * 8,  WHITE, WHITE, END)
 
+    for i in range (3, -1, -1):
+        print(" " * i, WHITE, END, " " * (6 - 2 * i), WHITE, END, " " * i * 2, WHITE, END, " " * (6 - 2 * i), WHITE, END)
+    print(WHITE, END, " " * 8, WHITE, WHITE, END, " " * 8, WHITE, END)
 
-print(' ' * 0, white, end, ' ' * 8, white, end,             white * 0, end, ' ' * 6, white, end)
-print(' ' * 1, white, end, ' ' * 6, white, end,             white * 1, end, ' ' * 6, white, end)
-print(' ' * 2, white, end, ' ' * 4, white, end,    ' ' * 1, white * 1, end, ' ' * 4, white, end)
-print(' ' * 3, white, end, ' ' * 2, white, end,    ' ' * 3, white * 1, end, ' ' * 2, white, end)
-print(' ' * 4, white, end, ' ' * 0, white, end,    ' ' * 5, white * 1, end, ' ' * 0, white, end)
-
-print(' ' * 5, white, white, end,                  ' ' * 7, white, white, end)
-
-print(' ' * 4, white, end, ' ' * 0, white, end,    ' ' * 5, white * 1, end, ' ' * 0, white, end)
-print(' ' * 3, white, end, ' ' * 2, white, end,    ' ' * 3, white * 1, end, ' ' * 2, white, end)
-print(' ' * 2, white, end, ' ' * 4, white, end,    ' ' * 1, white * 1, end, ' ' * 4, white, end)
-print(' ' * 1, white, end, ' ' * 6, white, end,             white * 1, end, ' ' * 6, white, end)
-print(' ' * 0, white, end, ' ' * 8, white, end,             white * 0, end, ' ' * 6, white, end)
+    print('\n'*2)
 
 
-print('\n'*2)
+def graph():
+    print('Ex 3 (function y(x) = 2*x)\n')
+    print('    OY')
+    spaces_after_OY = 12
+    OY_coordimates = 30
+    OX_coordinates = 15
+    spaces_before_x = 1
+    for i in range(20):
+        while OY_coordimates >= 10:
+            print(f'{OY_coordimates} ', WHITE, END, ' ' * spaces_after_OY, WHITE, END, spaces_before_x * ' ', f'(x = {OX_coordinates})')
+            spaces_after_OY -= 1
+            OY_coordimates -= 2
+            OX_coordinates -= 1
+            spaces_before_x += 1
+        while 4 < OY_coordimates < 10:
+            print(f'{OY_coordimates}  ', WHITE, END, ' ' * spaces_after_OY, WHITE, END, spaces_before_x * ' ', f'(x = {OX_coordinates})')
+            spaces_after_OY -= 1
+            OY_coordimates -= 2
+            OX_coordinates -= 1
+            spaces_before_x += 1
+    print('\n'*2)
 
-#Ex 3 (function y(x) = 2*x)
-print('Ex 3 (function y(x) = 2*x)\n')
-print('    OY')
-spaces_after_OY = 12
-OY_coordimates = 30
-OX_coordinates = 15
-spaces_before_x = 1
-for i in range(20):
-    while OY_coordimates >= 10:
-        print(f'{OY_coordimates} ', white, end, ' ' * spaces_after_OY, white, end, spaces_before_x * ' ', f'(x = {OX_coordinates})')
-        spaces_after_OY -= 1
-        OY_coordimates -= 2
-        OX_coordinates -= 1
-        spaces_before_x += 1
-    while 4 < OY_coordimates < 10:
-        print(f'{OY_coordimates}  ', white, end, ' ' * spaces_after_OY, white, end, spaces_before_x * ' ', f'(x = {OX_coordinates})')
-        spaces_after_OY -= 1
-        OY_coordimates -= 2
-        OX_coordinates -= 1
-        spaces_before_x += 1
 
+def diagram():
+    print('Ex 4 (diagram)')
+    with open('sequence.txt') as f:
+        data = [abs(float(x)) for x in f]
 
-print('\n'*2)
+    sum_chet_pos, sum_nechet_pos = 0, 0
+    for i in range(len(data)):
+        if (i+1) % 2 == 0:
+            sum_chet_pos += data[i]
+        else:
+            sum_nechet_pos += data[i]
+    sum_all = sum(data)
+    percent_ratio_chet = sum_chet_pos * 100 / sum_all
+    percent_ratio_nechet = sum_nechet_pos * 100 / sum_all
+    a, b = round(percent_ratio_chet, 2), round(percent_ratio_nechet, 2)
 
-#Ex 4 (diagram)
-print('Ex 4 (diagram)')
-f = open('sequence.txt', encoding = "utf-8")
-data = [abs(float(x)) for x in f]
-sum_chet_pos, sum_nechet_pos = 0, 0
-for i in range(len(data)):
-    if (i+1) % 2 == 0:
-        sum_chet_pos += data[i]
+    print(f'Чётные числа: {a}          Нечётные числа: {b}')
+    if a > b:
+        for i in range(max((a - b) / 10, 1)):
+            print(WHITE, ' ', END)
+        for i in range(10 - max((a - b) / 10, 1)):
+            print(WHITE, ' ', END, ' ' * 24, WHITE, ' ', END)
     else:
-        sum_nechet_pos += data[i]
-sum_all = sum(data)
-persent_ratio_chet = sum_chet_pos * 100 / sum_all
-persent_ratio_nechet = sum_nechet_pos * 100 / sum_all
-a, b = round(persent_ratio_chet, 2), round(persent_ratio_nechet, 2)
+        for i in range(max((b - a) / 10, 1)):
+            print(' ' * 28, WHITE, ' ', END)
+        for i in range(10 - max((b - a) / 10, 1)):
+            print(WHITE, ' ', END, ' ' * 24, WHITE, ' ', END)
 
-print(f'Чётные числа: {a}          Нечётные числа: {b}')
-if a > b:
-    for i in range(max((a - b) / 10, 1)):
-        print(white, ' ', end)
-    for i in range(10 - max((a - b) / 10, 1)):
-        print(white, ' ', end, ' ' * 24, white, ' ', end)
-else:
-    for i in range(max((b - a) / 10, 1)):
-        print(' ' * 28, white, ' ', end)
-    for i in range(10 - max((b - a) / 10, 1)):
-        print(white, ' ', end, ' ' * 24, white, ' ', end)
+
+Flag_Netherlands()  # Ex. 1
+Tracery_c()         # Ex. 2
+graph()             # Ex. 3
+diagram()           # Ex. 4
