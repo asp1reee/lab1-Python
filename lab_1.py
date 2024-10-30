@@ -1,32 +1,38 @@
-RED = '\x1b[41m'
-BLUE = '\u001b[44m'
-WHITE = '\x1b[48;5;15m'
-END = '\u001b[0m'
+red = '\x1b[41m'
+blue = '\u001b[44m'
+white = '\x1b[48;5;15m'
+end = '\u001b[0m'
 
 
 def draw_line(color, ln):
     line = ' ' * ln
-    print(color, line, END)
+    print(color, line, end)
 
 
-def Flag_Netherlands():
+def flag():
     print('Ex 1 (Netherlands flag)')
-    for color in [RED, WHITE, BLUE]:
+    for color in [red, white, blue]:
         draw_line(color, 20)
     print('\n'*2)
 
 
-def Tracery_c():
+def tracery():
     print('Ex 2 (Tracery c)')
-    print(WHITE, END, " " * 8, WHITE, WHITE, END, " " * 8, WHITE, END)
+    print(white, end, " " * 8, white, white, end,
+          " " * 8, white, end)
     for i in range (4):
-        print(" " * i, WHITE, END, " " * (6 - 2 * i), WHITE, END, " " * i * 2, WHITE, END, " " * (6 - 2 * i), WHITE, END)
+        print(" " * i, white, end, " " * (6 - 2 * i),
+              white, end, " " * i * 2, white, end,
+              " " * (6 - 2 * i), white, end)
 
-    print(" " * 4, WHITE, WHITE, END, " " * 8,  WHITE, WHITE, END)
+    print(" " * 4, white, white, end, " " * 8, white, white, end)
 
     for i in range (3, -1, -1):
-        print(" " * i, WHITE, END, " " * (6 - 2 * i), WHITE, END, " " * i * 2, WHITE, END, " " * (6 - 2 * i), WHITE, END)
-    print(WHITE, END, " " * 8, WHITE, WHITE, END, " " * 8, WHITE, END)
+        print(" " * i, white, end, " " * (6 - 2 * i),
+              white, end, " " * i * 2, white, end,
+              " " * (6 - 2 * i), white, end)
+    print(white, end, " " * 8, white, white, end,
+          " " * 8, white, end)
 
     print('\n'*2)
 
@@ -40,13 +46,17 @@ def graph():
     spaces_before_x = 1
     for i in range(20):
         while OY_coordimates >= 10:
-            print(f'{OY_coordimates} ', WHITE, END, ' ' * spaces_after_OY, WHITE, END, spaces_before_x * ' ', f'(x = {OX_coordinates})')
+            print(f'{OY_coordimates} ', white, end,
+                  ' ' * spaces_after_OY, white, end,
+                  spaces_before_x * ' ', f'(x = {OX_coordinates})')
             spaces_after_OY -= 1
             OY_coordimates -= 2
             OX_coordinates -= 1
             spaces_before_x += 1
         while 4 < OY_coordimates < 10:
-            print(f'{OY_coordimates}  ', WHITE, END, ' ' * spaces_after_OY, WHITE, END, spaces_before_x * ' ', f'(x = {OX_coordinates})')
+            print(f'{OY_coordimates}  ', white, end,
+                  ' ' * spaces_after_OY, white, end,
+                  spaces_before_x * ' ', f'(x = {OX_coordinates})')
             spaces_after_OY -= 1
             OY_coordimates -= 2
             OX_coordinates -= 1
@@ -73,17 +83,17 @@ def diagram():
     print(f'Чётные числа: {a}          Нечётные числа: {b}')
     if a > b:
         for i in range(max((a - b) / 10, 1)):
-            print(WHITE, ' ', END)
+            print(white, ' ', end)
         for i in range(10 - max((a - b) / 10, 1)):
-            print(WHITE, ' ', END, ' ' * 24, WHITE, ' ', END)
+            print(white, ' ', end, ' ' * 24, white, ' ', end)
     else:
         for i in range(max((b - a) / 10, 1)):
-            print(' ' * 28, WHITE, ' ', END)
+            print(' ' * 28, white, ' ', end)
         for i in range(10 - max((b - a) / 10, 1)):
-            print(WHITE, ' ', END, ' ' * 24, WHITE, ' ', END)
+            print(white, ' ', end, ' ' * 24, white, ' ', end)
 
 
-Flag_Netherlands()  # Ex. 1
-Tracery_c()         # Ex. 2
+flag()              # Ex. 1
+tracery()           # Ex. 2
 graph()             # Ex. 3
 diagram()           # Ex. 4
